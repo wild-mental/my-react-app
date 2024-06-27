@@ -8,7 +8,10 @@ import ButtonStyled from "./components/ButtonStyled";
 function App() {
   return (
     <div className="App">
-      <HeaderContent />
+      {/*<HeaderContent />*/}
+      <MyComponent />
+      <ButtonStyled>일반 버튼</ButtonStyled>
+      <ButtonStyled primary>Primary 버튼</ButtonStyled>
     </div>
   );
 }
