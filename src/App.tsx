@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
-import './HeaderContent'
-import HeaderContent from "./HeaderContent";
+import 'components/HeaderContent'
+import HeaderContent from "components/HeaderContent";
+import MyComponent from "components/MyComponent";
+import ButtonStyled from "./components/ButtonStyled";
 
 function App() {
   return (
