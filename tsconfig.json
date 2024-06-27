@@ -12,6 +12,9 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "noImplicitAny": false,         // Any 타입 체킹 비활성화
+    "noImplicitUndefined": false,   // Undefined 타입 체킹 비활성화
+    "noImplicitUnknown": false,     // Unknown 타입 체킹 비활성화
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
