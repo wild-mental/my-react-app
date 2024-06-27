@@ -1,10 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from '../logo.svg';
+import '../App.css';
 
 function HeaderContent() {
     return (
-        <header className="App-header">
+        // <header className="App-header">
+        // <React.Fragment>
+        <>
             <img src={logo} className="App-logo" alt="logo" />
             <p>
                 Edit <code>src/App.tsx</code> and save to reload.
@@ -17,7 +19,9 @@ function HeaderContent() {
             >
                 헤더 콘텐츠 분리
             </a>
-        </header>
+        </>
+        // </React.Fragment>
+        // </header>
     );
 }
 
