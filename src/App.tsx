@@ -8,6 +8,7 @@ import MyButton from "./components/MyButton";
 import MyStateComponent from "./components/MyStateComponent";
 import ClickCounter from "./components/ClickCounter";
 import ReloacControlEx from "./components/ReloadControlEx";
+import ExpenseForm, {ExpenseData} from "./components/ExpenseForm";
 
 interface PersonProps {  // 타입 힌트에 사용
     name?: string;
@@ -31,14 +32,25 @@ interface FruitListProps {
     items: unknown;
 }
 
+function isStringArr(value: unknown): value is string[] {
+    return typeof value === 'string';
+}
+
 function FruitList(props: FruitListProps) {
-    // const { items } = props as { items: string[] };
+    //const { items } = props as { items: string[] };
+    // const items = props.items as string[];
     const items = props.items;
+    if (!isStringArr(items)) {
+        return (
+            <p>items 데이터 타입이 잘못들어왔습니다.</p>
+        )
+    }
     return (
         <ul>
             {/* ? 를 사용한 조건부 참조형 타입 컨트롤 수행 시 */}
             {/* 해당 타입을 사용할 때에도 조건부 참조하면 좋다 */}
             {items.map((item, index) => (
+            // {items.map((item, index) => (
                 <li key={index}>{item}</li>
             ))}
         </ul>
@@ -69,8 +81,17 @@ function ToggleText(props: any) {
     );
 }
 
+
 function App() {
-  return (
+    // App 자체에서 지출데이터의 목록을 배열로 관리한다.
+    const [expenses, setExpenses] = useState<ExpenseData[]>([]);
+    // add 이벤트 발생 시 데이터의 배열에 맨 첫 항목으로 추가된 지출 내역을 넣는다.
+    const addExpenseHandler = (expense: ExpenseData) => {
+        setExpenses(prevExpenses => [expense, ...prevExpenses])
+        console.log(expenses, expense);
+    }
+
+    return (
     <div className="App">
       {/*<HeaderContent />*/}
       {/*<MyComponent />*/}
@@ -93,7 +114,8 @@ function App() {
       {/*<MyButton handlerType={"external props receiver"} />*/}
       {/*<MyStateComponent />*/}
       {/*<ClickCounter />*/}
-        <ReloacControlEx />
+      {/*  <ReloacControlEx />*/}
+      <ExpenseForm onSaveExpense={addExpenseHandler} />
     </div>
   );
 }
