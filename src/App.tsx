@@ -9,6 +9,8 @@ import MyStateComponent from "./components/MyStateComponent";
 import ClickCounter from "./components/ClickCounter";
 import ReloacControlEx from "./components/ReloadControlEx";
 import ExpenseForm, {ExpenseData} from "./components/ExpenseForm";
+import DrillingParent from "./components/DrillingParent";
+import CalledBackParent from "./components/CalledBackParent";
 
 interface PersonProps {  // 타입 힌트에 사용
     name?: string;
@@ -84,39 +86,48 @@ function ToggleText(props: any) {
 
 function App() {
     // App 자체에서 지출데이터의 목록을 배열로 관리한다.
-    const [expenses, setExpenses] = useState<ExpenseData[]>([]);
-    // add 이벤트 발생 시 데이터의 배열에 맨 첫 항목으로 추가된 지출 내역을 넣는다.
-    const addExpenseHandler = (expense: ExpenseData) => {
-        setExpenses(prevExpenses => [expense, ...prevExpenses])
-        console.log(expenses, expense);
-    }
+    // const [expenses, setExpenses] = useState<ExpenseData[]>([]);
+    // // add 이벤트 발생 시 데이터의 배열에 맨 첫 항목으로 추가된 지출 내역을 넣는다.
+    // const addExpenseHandler = (expense: ExpenseData) => {
+    //     setExpenses(prevExpenses => [expense, ...prevExpenses])
+    //     console.log(expenses, expense);
+    // }
+
+    const name = 'External name data';
 
     return (
-    <div className="App">
-      {/*<HeaderContent />*/}
-      {/*<MyComponent />*/}
-      {/*<ButtonStyled>일반 버튼</ButtonStyled>*/}
-      {/*<ButtonStyled primary={true}>Primary 버튼</ButtonStyled>*/}
-      {/*<Person name="Sarah" age={28} />*/}
-      {/*<Person name="John" age={29} />*/}
-      {/*<FruitList items={['Apple', 'Banana', 'Cherry']} />*/}
-      {/*<Welcome>*/}
-      {/*    children 에 해당하는 내용을 여기에 전달합니다.*/}
-      {/*</Welcome>*/}
-      {/*<Welcome>*/}
-      {/*    <Person name="John" age={29} />*/}
-      {/*</Welcome>*/}
-      {/*<Card>*/}
-      {/*  <h1>Hello, world!</h1>*/}
-      {/*  <p>Welcome to my application.</p>*/}
-      {/*</Card>*/}
-      {/*<ToggleText alternative="Click to show text">Hello, world!</ToggleText>*/}
-      {/*<MyButton handlerType={"external props receiver"} />*/}
-      {/*<MyStateComponent />*/}
-      {/*<ClickCounter />*/}
-      {/*  <ReloacControlEx />*/}
-      <ExpenseForm onSaveExpense={addExpenseHandler} />
-    </div>
+        <div className="App">
+            {/*<HeaderContent />*/}
+            {/*<MyComponent />*/}
+            {/*<ButtonStyled>일반 버튼</ButtonStyled>*/}
+            {/*<ButtonStyled primary={true}>Primary 버튼</ButtonStyled>*/}
+            {/*<Person name="Sarah" age={28} />*/}
+            {/*<Person name="John" age={29} />*/}
+            {/*<FruitList items={['Apple', 'Banana', 'Cherry']} />*/}
+            {/*<Welcome>*/}
+            {/*    children 에 해당하는 내용을 여기에 전달합니다.*/}
+            {/*</Welcome>*/}
+            {/*<Welcome>*/}
+            {/*    <Person name="John" age={29} />*/}
+            {/*</Welcome>*/}
+            {/*<Card>*/}
+            {/*  <h1>Hello, world!</h1>*/}
+            {/*  <p>Welcome to my application.</p>*/}
+            {/*</Card>*/}
+            {/*<ToggleText alternative="Click to show text">Hello, world!</ToggleText>*/}
+            {/*<MyButton handlerType={"external props receiver"} />*/}
+            {/*<MyStateComponent />*/}
+            {/*<ClickCounter />*/}
+            {/*  <ReloacControlEx />*/}
+            {/*<ExpenseForm onSaveExpense={addExpenseHandler} />*/}
+
+            <h1>Drilling Example</h1>
+            <DrillingParent name={name} />
+
+            <hr/>
+
+            <CalledBackParent />
+        </div>
   );
 }
 
