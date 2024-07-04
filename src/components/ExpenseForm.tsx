@@ -19,8 +19,10 @@ const ExpenseForm: React.FC<ExpenseFormProps> =
             {title: '', price: 0, date: ''}
         );
 
+        // 필드 이벤트에 대한 핸들러 함수
         const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
             const { name, value } = e.target;
+            // set 함수 호출 시에도 실제 값이 변경되었는지의 검사가 수행된다.
             setUserInput(
                 // HTML 로부터 Input 필드의 변경을 감지하고
                 // 변경된 필드 외의 다른 변수들은 그대로 둔 채 특정 필드만 업데이트하는 구조
@@ -35,6 +37,7 @@ const ExpenseForm: React.FC<ExpenseFormProps> =
             );
         };
 
+        // 폼 제출 이벤트에 대한 한들러 함수
         const submitHandler = (e: FormEvent<HTMLFormElement>) => {
             e.preventDefault();
 
@@ -85,6 +88,8 @@ const ExpenseForm: React.FC<ExpenseFormProps> =
     }
 
 export default ExpenseForm;
+
+// 외부에서 Form 을 활용할 때 필요한 input 스키마를 export 해야 함
 export interface ExpenseData {
     title: string;
     price: number;
