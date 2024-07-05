@@ -1,8 +1,10 @@
 import React, {ChangeEvent, FormEvent, useState} from "react";
+import {ExpenseItemProps} from "./ExpenseItem";
+
 
 interface ExpenseFormProps {
     // 외부에서 Form 을 정의할 때, save 동작을 props 에 담아서 수신하는 구조
-    onSaveExpense: (expense: ExpenseData) => void;
+    onSaveExpense: (expense: ExpenseItemProps) => void;
 }
 
 // 외부에서 Form 을 정의할 때, save 동작을
@@ -43,10 +45,10 @@ const ExpenseForm: React.FC<ExpenseFormProps> =
 
             // 아래 내용은 state 가 변경된 것을 그대로 데이터에 반영해줌
             // 업데이트 되며 관리되고 있던 state 값을 다시 후속 동작의 input 데이터로 사용하는 패턴
-            const expense: ExpenseData = {
+            const expense: ExpenseItemProps = {
                 title: userInput.title,
                 price: userInput.price,
-                date: userInput.date,
+                date: new Date(userInput.date),
             };
 
             // ExpenseForm 컴포넌트가 외부에서 수신하는 함수 props 를 그대로 호출

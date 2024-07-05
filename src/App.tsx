@@ -2,15 +2,17 @@ import React, {useState} from 'react';
 import './App.css';
 import 'components/HeaderContent'
 // import HeaderContent from "components/HeaderContent";
-import MyComponent from "components/MyComponent";
-import ButtonStyled from "./components/ButtonStyled";
-import MyButton from "./components/MyButton";
-import MyStateComponent from "./components/MyStateComponent";
-import ClickCounter from "./components/ClickCounter";
-import ReloacControlEx from "./components/ReloadControlEx";
+// import MyComponent from "components/MyComponent";
+// import ButtonStyled from "./components/ButtonStyled";
+// import MyButton from "./components/MyButton";
+// import MyStateComponent from "./components/MyStateComponent";
+// import ClickCounter from "./components/ClickCounter";
+// import ReloacControlEx from "./components/ReloadControlEx";
 import ExpenseForm, {ExpenseData} from "./components/ExpenseForm";
-import DrillingParent from "./components/DrillingParent";
-import CalledBackParent from "./components/CalledBackParent";
+import ExpenseItem, {ExpenseItemProps} from "./components/ExpenseItem";
+import ExpenseList from "./components/ExpenseList";
+// import DrillingParent from "./components/DrillingParent";
+// import CalledBackParent from "./components/CalledBackParent";
 
 interface PersonProps {  // 타입 힌트에 사용
     name?: string;
@@ -67,13 +69,6 @@ function Welcome(props: WelcomeProps) {
     return <div>{props.children}</div>;
 }
 
-function Card(props: any) {
-    return (
-        <div style={{ border: '1px solid gray', margin: '10px', padding: '10px' }}>
-            {props.children}
-        </div>
-    );
-}
 function ToggleText(props: any) {
     const [isShown, setIsShown] = useState(false);
     return (
@@ -83,15 +78,40 @@ function ToggleText(props: any) {
     );
 }
 
-
 function App() {
     // App 자체에서 지출데이터의 목록을 배열로 관리한다.
-    // const [expenses, setExpenses] = useState<ExpenseData[]>([]);
-    // // add 이벤트 발생 시 데이터의 배열에 맨 첫 항목으로 추가된 지출 내역을 넣는다.
-    // const addExpenseHandler = (expense: ExpenseData) => {
-    //     setExpenses(prevExpenses => [expense, ...prevExpenses])
-    //     console.log(expenses, expense);
-    // }
+    const [expenses, setExpenses] = useState<ExpenseItemProps[]>(
+        [
+            {
+                title: "더미 지출 내역 1입니다.",
+                price: 10000,
+                date: new Date()
+            },
+            {
+                title: "더미 지출 내역 2입니다.",
+                price: 20000,
+                date: new Date()
+            },
+            {
+                title: "더미 지출 내역 3입니다.",
+                price: 30000,
+                date: new Date()
+            }
+        ]
+    );
+    // add 이벤트 발생 시 데이터의 배열에 맨 첫 항목으로 추가된 지출 내역을 넣는다.
+    const addExpenseHandler = (expense: ExpenseItemProps) => {
+        // state 변수 업데이트
+        setExpenses(prevExpenses => [expense, ...prevExpenses])
+        // 콘솔에서 값 확인
+        console.log(expenses, expense);
+    };
+
+    const expenseItem = {
+        title: "더미 지출 내역입니다.",
+        price: 50000,
+        date: new Date()
+    };
 
     const name = 'External name data';
 
@@ -119,14 +139,13 @@ function App() {
             {/*<MyStateComponent />*/}
             {/*<ClickCounter />*/}
             {/*  <ReloacControlEx />*/}
-            {/*<ExpenseForm onSaveExpense={addExpenseHandler} />*/}
-
-            <h1>Drilling Example</h1>
-            <DrillingParent name={name} />
-
-            <hr/>
-
-            <CalledBackParent />
+            {/*<h1>Drilling Example</h1>*/}
+            {/*<DrillingParent name={name} />*/}
+            {/*<hr/>*/}
+            {/*<CalledBackParent />*/}
+            <ExpenseForm onSaveExpense={addExpenseHandler} />
+            {/*<ExpenseItem title={expenseItem.title} price={expenseItem.price} date={expenseItem.date} />*/}
+            <ExpenseList items={expenses} />
         </div>
   );
 }
