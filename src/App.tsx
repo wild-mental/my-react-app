@@ -85,17 +85,108 @@ function App() {
             {
                 title: "더미 지출 내역 1입니다.",
                 price: 10000,
-                date: new Date()
+                // 월을 인덱스로 받기 때문에 1월이 0으로 시작, 5(6-1)를 넣으면 6월이 됨
+                date: new Date(2024, 6-1, 3)
             },
             {
                 title: "더미 지출 내역 2입니다.",
                 price: 20000,
-                date: new Date()
+                date: new Date(2023, 12-1, 25)
             },
             {
                 title: "더미 지출 내역 3입니다.",
                 price: 30000,
-                date: new Date()
+                date: new Date(2022, 1-1, 1)
+            },
+            {
+                title: "더미 지출 내역 4입니다.",
+                price: 30000,
+                date: new Date(2021, 5-1, 5)
+            }
+            ,
+            {
+                title: "더미 지출 내역 5입니다.",
+                price: 30000,
+                date: new Date(2020, 7-1, 7)
+            },{
+            title: "더미 지출 내역 1입니다.",
+            price: 10000,
+            // 월을 인덱스로 받기 때문에 1월이 0으로 시작, 5(6-1)를 넣으면 6월이 됨
+            date: new Date(2024, 6-1, 3)
+        },
+            {
+                title: "더미 지출 내역 2입니다.",
+                price: 20000,
+                date: new Date(2023, 12-1, 25)
+            },
+            {
+                title: "더미 지출 내역 3입니다.",
+                price: 30000,
+                date: new Date(2022, 1-1, 1)
+            },
+            {
+                title: "더미 지출 내역 4입니다.",
+                price: 30000,
+                date: new Date(2021, 5-1, 5)
+            }
+            ,
+            {
+                title: "더미 지출 내역 5입니다.",
+                price: 30000,
+                date: new Date(2020, 7-1, 7)
+            },
+            {
+                title: "더미 지출 내역 1입니다.",
+                price: 10000,
+                // 월을 인덱스로 받기 때문에 1월이 0으로 시작, 5(6-1)를 넣으면 6월이 됨
+                date: new Date(2024, 6-1, 3)
+            },
+            {
+                title: "더미 지출 내역 2입니다.",
+                price: 20000,
+                date: new Date(2023, 12-1, 25)
+            },
+            {
+                title: "더미 지출 내역 3입니다.",
+                price: 30000,
+                date: new Date(2022, 1-1, 1)
+            },
+            {
+                title: "더미 지출 내역 4입니다.",
+                price: 30000,
+                date: new Date(2021, 5-1, 5)
+            }
+            ,
+            {
+                title: "더미 지출 내역 5입니다.",
+                price: 30000,
+                date: new Date(2020, 7-1, 7)
+            },{
+            title: "더미 지출 내역 1입니다.",
+            price: 10000,
+            // 월을 인덱스로 받기 때문에 1월이 0으로 시작, 5(6-1)를 넣으면 6월이 됨
+            date: new Date(2024, 6-1, 3)
+        },
+            {
+                title: "더미 지출 내역 2입니다.",
+                price: 20000,
+                date: new Date(2023, 12-1, 25)
+            },
+            {
+                title: "더미 지출 내역 3입니다.",
+                price: 30000,
+                date: new Date(2022, 1-1, 1)
+            },
+            {
+                title: "더미 지출 내역 4입니다.",
+                price: 30000,
+                date: new Date(2021, 5-1, 5)
+            }
+            ,
+            {
+                title: "더미 지출 내역 5입니다.",
+                price: 30000,
+                date: new Date(2020, 7-1, 7)
             }
         ]
     );
@@ -145,6 +236,7 @@ function App() {
             {/*<CalledBackParent />*/}
             <ExpenseForm onSaveExpense={addExpenseHandler} />
             {/*<ExpenseItem title={expenseItem.title} price={expenseItem.price} date={expenseItem.date} />*/}
+            <hr/>
             <ExpenseList items={expenses} />
         </div>
   );
