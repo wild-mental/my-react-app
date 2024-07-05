@@ -29,7 +29,7 @@ const ExpenseList:React.FC<ExpenseListProps> = (props) => {
     // console.log(filteredYear)
     //console.log(filteredExpenseList)
     // 컴포넌트형으로 필터링된 ExpenseItem 내역 변경
-    let expenseList: any = <p>지출 내역 없음</p>;
+    let expenseList: React.ReactElement | React.ReactElement[] = <p>지출 내역 없음</p>;
     // if (filteredExpenseList.length > 0) {
         // map 형태로 메서드 체이닝 수행
         expenseList = props.items
